@@ -1,0 +1,35 @@
+nav {
+  background: rgb(34,193,195);
+  background: radial-gradient(circle, rgba(32,218,216,1) 100%, rgba(34,193,195,1) 0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  margin: 0;
+  margin-bottom: .9em; 
+  min-height: 2.3em;
+  border-radius: .2em .2em .6em .6em;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  align-content: center;
+
+}
+
+ul {
+  /* background-color: lightpink; */
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0 0 0 2em;
+  width: 71%; 
+  padding: 0;
+  display: flex;
+}
+  
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-size: 1.7em;
+  padding: 0 .5em;
+  /* background-color: lightgray; */
+}

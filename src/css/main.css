@@ -1,0 +1,16 @@
+body {
+  font-family: 'Montserrat Alternates';
+  background: rgb(243,234,232);
+  background: radial-gradient(circle, rgba(243,234,232,1) 65%, rgba(32,218,216,1) 100%);
+  color: black;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Für Chrome, Safari und andere WebKit-basierte Browser */
+}

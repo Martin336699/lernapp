@@ -1,0 +1,28 @@
+{
+  "fragen": [
+    "Was ist <StrictMode>?",
+    "Was macht die <useEffect>-Hook in React?",
+    "within the bounds of the array"
+  ],
+  "antworten": [
+    "<StrictMode> ist ein Hilfsmittel in React, das Entwicklern hilft, potenzielle Probleme in ihrer Anwendung zu identifizieren. Es handelt sich um einen Wrapper, den man um Komponenten legen kann, um zusätzliche Überprüfungen und Warnungen während der Entwicklung zu aktivieren.  Einige der Hauptfunktionen von <StrictMode> sind:  Erkennung von unsicheren Lebenszyklusmethoden: Warnungen werden ausgegeben, wenn veraltete oder unsichere Methoden verwendet werden. Warnungen bei unerwartetem Verhalten: Es hilft dabei, Probleme wie Nebenwirkungen in Render-Methoden zu erkennen. Doppelte Ausführung von Komponenten: In der Entwicklungsumgebung werden Komponenten absichtlich doppelt gerendert, um sicherzustellen, dass sie korrekt mit dem Zustand umgehen.  Es ist wichtig zu beachten, dass <StrictMode> nur in der Entwicklungsumgebung aktiv ist und keine Auswirkungen auf die Produktionsversion hat.",
+    "Die <useEffect>-Hook in React wird verwendet, um Effekte in funktionalen Komponenten zu handhaben. Effekte sind Dinge, die außerhalb des normalen Renderprozesses einer Komponente passieren, wie zum Beispiel:  Daten abrufen: Informationen von einem Server laden. Ereignisse abonnieren: Auf Änderungen oder Ereignisse reagieren (z.B. Benachrichtigungen). Änderungen am DOM: Direkte Manipulationen an der Benutzeroberfläche vornehmen. Aufräumen: Ressourcen freigeben, wenn die Komponente nicht mehr benötigt wird.  useEffect nimmt zwei Argumente: eine Funktion, die den Code für den Effekt enthält, und ein optionales Array von Abhängigkeiten. Dieses Array bestimmt, wann die Funktion erneut ausgeführt werden soll. Wenn das Array leer ist, wird die Funktion nur einmal nach dem ersten Rendern der Komponente ausgeführt. So hilft useEffect, den Code sauber und effizient zu halten.",
+    "innerhalb der Grenzen des Arrays"
+  ],
+  "Programming": [
+    {
+      "frage": "Was ist <StrictMode>?",
+      "antwort": "<StrictMode> ist ein Hilfsmittel in React, das Entwicklern hilft, potenzielle Probleme in ihrer Anwendung zu identifizieren. Es handelt sich um einen Wrapper, den man um Komponenten legen kann, um zusätzliche Überprüfungen und Warnungen während der Entwicklung zu aktivieren.  Einige der Hauptfunktionen von <StrictMode> sind:  Erkennung von unsicheren Lebenszyklusmethoden: Warnungen werden ausgegeben, wenn veraltete oder unsichere Methoden verwendet werden. Warnungen bei unerwartetem Verhalten: Es hilft dabei, Probleme wie Nebenwirkungen in Render-Methoden zu erkennen. Doppelte Ausführung von Komponenten: In der Entwicklungsumgebung werden Komponenten absichtlich doppelt gerendert, um sicherzustellen, dass sie korrekt mit dem Zustand umgehen.  Es ist wichtig zu beachten, dass <StrictMode> nur in der Entwicklungsumgebung aktiv ist und keine Auswirkungen auf die Produktionsversion hat."
+    },
+    {
+      "frage": "Was macht die <useEffect>-Hook in React?",
+      "antwort": "Die <useEffect>-Hook in React wird verwendet, um Effekte in funktionalen Komponenten zu handhaben. Effekte sind Dinge, die außerhalb des normalen Renderprozesses einer Komponente passieren, wie zum Beispiel:  Daten abrufen: Informationen von einem Server laden. Ereignisse abonnieren: Auf Änderungen oder Ereignisse reagieren (z.B. Benachrichtigungen). Änderungen am DOM: Direkte Manipulationen an der Benutzeroberfläche vornehmen. Aufräumen: Ressourcen freigeben, wenn die Komponente nicht mehr benötigt wird.  useEffect nimmt zwei Argumente: eine Funktion, die den Code für den Effekt enthält, und ein optionales Array von Abhängigkeiten. Dieses Array bestimmt, wann die Funktion erneut ausgeführt werden soll. Wenn das Array leer ist, wird die Funktion nur einmal nach dem ersten Rendern der Komponente ausgeführt. So hilft useEffect, den Code sauber und effizient zu halten."
+    }
+  ],
+  "Englisch": [
+    {
+      "frage": "within the bounds of the array",
+      "antwort": "innerhalb der Grenzen des Arrays"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ const path = require('path');
 
 export default function handler(req, res) {
   const filePath = path.join(process.cwd(), 'api', 'data.json');
+  console.log(`Reading file from: ${filePath}`);
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {

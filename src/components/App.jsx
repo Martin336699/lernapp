@@ -17,7 +17,7 @@ function App() {
     useEffect(() => {
       const fetchDaten = async () => {
         try {
-          const response = await fetch('/api/server/load');
+          const response = await fetch('/api/server');
           if (response.ok) {
             const data = await response.json();
             console.log(data);

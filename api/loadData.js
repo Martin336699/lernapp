@@ -4,11 +4,18 @@ const path = require('path');
 export default function handler(req, res) {
   const filePath = path.join(process.cwd(), 'api', 'data.json');
 
-  fs.readFile(filePath, (err, data) => {
+  fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      res.status(500).send('Fehler beim Laden der Datei');
+      console.error('Error reading file:', err);
+      res.status(500).json({ error: 'Fehler beim Laden der Datei' });
     } else {
-      res.status(200).send(data);
+      try {
+        const jsonData = JSON.parse(data);
+        res.status(200).json(jsonData);
+      } catch (parseError) {
+        console.error('Error parsing JSON:', parseError);
+        res.status(500).json({ error: 'Fehler beim Parsen der Datei' });
+      }
     }
   });
 }

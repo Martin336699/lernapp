@@ -45,7 +45,7 @@ function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCate
   
   const saveDataLocally = async ({newFragenListe}) => {
     try {
-      const response = await fetch('/api/server', {
+      const response = await fetch('/api/saveData', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

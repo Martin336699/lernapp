@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/database';
+import { database } from '../firebase'; // Adjust the path to firebase.js
 import '../css/app.css';
 
 function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCategory, catKeys, setCatKeys, handleSelectChange  }) {
@@ -121,7 +120,6 @@ function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCate
       //   return newFragenListe;
       // });
 
-      const database = firebase.database();
       const newFrage = {
         frage,
         antwort,

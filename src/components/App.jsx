@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
  import { BrowserRouter, Routes, Route } from "react-router-dom";
- import firebase from 'firebase/app';
-import 'firebase/database';
+ import { database } from '../firebase'; // Ensure correct path to firebase.js
 import '../css/app.css';
 import RenderKarteikarte from './RenderKarteikarte';
 import InputKarteiKarte from './InputKarteikarte';
@@ -18,7 +17,6 @@ function App() {
 
     useEffect(() => {
       const fetchDaten = async () => {
-        const database = firebase.database();
         const karteikartenRef = database.ref('karteikarten');
   
         karteikartenRef.on('value', (snapshot) => {

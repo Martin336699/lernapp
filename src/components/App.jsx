@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
  import { BrowserRouter, Routes, Route } from "react-router-dom";
  import { database } from '../firebase'; // Ensure correct path to firebase.js
+ import { ref, onValue } from 'firebase/database';
 import '../css/app.css';
 import RenderKarteikarte from './RenderKarteikarte';
 import InputKarteiKarte from './InputKarteikarte';
@@ -17,9 +18,9 @@ function App() {
 
     useEffect(() => {
       const fetchDaten = async () => {
-        const karteikartenRef = database.ref('karteikarten');
+        const karteikartenRef = ref(database, 'karteikarten');
   
-        karteikartenRef.on('value', (snapshot) => {
+        onValue(karteikartenRef, (snapshot) => {
           const data = snapshot.val();
           if (data) {
             const keys = Object.keys(data);
@@ -31,6 +32,7 @@ function App() {
   
         return () => karteikartenRef.off();
       };
+  
       fetchDaten();
     }, [setFragenListe]);
 

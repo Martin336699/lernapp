@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { database } from '../firebase'; // Adjust the path to firebase.js
+import { ref, push } from 'firebase/database';
 import '../css/app.css';
 
 function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCategory, catKeys, setCatKeys, handleSelectChange  }) {
@@ -126,7 +127,8 @@ function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCate
         category
       };
 
-      database.ref('karteikarten').push(newFrage)
+      const karteikartenRef = ref(database, 'karteikarten');
+      push(karteikartenRef, newFrage)
         .then(() => {
           console.log('Daten erfolgreich gespeichert');
           setFrage('');

@@ -4,7 +4,7 @@ const path = require('path');
 export default function handler(req, res) {
   if (req.method === 'POST') {
     const data = JSON.stringify(req.body, null, 2);
-    const filePath = path.join(process.cwd(), 'api', 'data.json');
+    const filePath = path.join(process.cwd(), 'data', 'data.json');
 
     fs.writeFile(filePath, data, (err) => {
       if (err) {

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
  import { BrowserRouter, Routes, Route } from "react-router-dom";
+ import firebase from 'firebase/app';
+import 'firebase/database';
 import '../css/app.css';
 import RenderKarteikarte from './RenderKarteikarte';
 import InputKarteiKarte from './InputKarteikarte';
@@ -16,21 +18,20 @@ function App() {
 
     useEffect(() => {
       const fetchDaten = async () => {
-        try {
-          const response = await fetch('/api/loadData');
-          if (response.ok) {
-            const data = await response.json();
-            console.log(data);
+        const database = firebase.database();
+        const karteikartenRef = database.ref('karteikarten');
+  
+        karteikartenRef.on('value', (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
             const keys = Object.keys(data);
-            setCatKeys(keys.slice(2));
+            setCatKeys(keys);
             setFragenListe(data);
-            setSelect(keys[2]); // Set default select to the first category
-          } else {
-            console.error('Fehler beim Laden der Daten');
+            setSelect(keys[0]); // Set default select to the first category
           }
-        } catch (error) {
-          console.error('Netzwerkfehler', error.message);
-        }
+        });
+  
+        return () => karteikartenRef.off();
       };
       fetchDaten();
     }, [setFragenListe]);

@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import '../css/app.css';
 
 function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCategory, catKeys, setCatKeys, handleSelectChange  }) {
@@ -43,25 +45,25 @@ function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCate
   
   
   
-  const saveDataLocally = async ({newFragenListe}) => {
-    try {
-      const response = await fetch('/api/saveData', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newFragenListe)
-      });
+  // const saveDataLocally = async ({newFragenListe}) => {
+  //   try {
+  //     const response = await fetch('/api/saveData', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(newFragenListe)
+  //     });
       
-      if (response.ok) {
-        console.log('Daten erfolgreich gespeichert');
-      } else {
-        console.error('Fehler beim Speichern der Daten');
-      }
-    } catch (error) {
-      console.error('Netzwerkfehler', error.message);
-    }
-  };
+  //     if (response.ok) {
+  //       console.log('Daten erfolgreich gespeichert');
+  //     } else {
+  //       console.error('Fehler beim Speichern der Daten');
+  //     }
+  //   } catch (error) {
+  //     console.error('Netzwerkfehler', error.message);
+  //   }
+  // };
   
   const handleInputChange = (e) => {
     setFrage(e.target.value);
@@ -104,19 +106,49 @@ function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCate
         alert('Bitte gib eine Frage und eine Antwort ein');
         return;
       };
-      setFragenListe((prevState) => {
-        const newFragenListe = {
-          ...prevState,
-          [select]: [...(prevState[select] || []), { frage, antwort }],
-          fragen: [...prevState.fragen, frage],
-          antworten: [...prevState.antworten, antwort]
-        };
-        setFrage("");
-        setAntwort("");
-        console.log(newFragenListe);
-        saveDataLocally({newFragenListe});
-        return newFragenListe;
-      });
+      // setFragenListe((prevState) => {
+      //   const newFragenListe = {
+      //     ...prevState,
+      //     [select]: [...(prevState[select] || []), { frage, antwort }],
+      //     fragen: [...prevState.fragen, frage],
+      //     antworten: [...prevState.antworten, antwort]
+      //   };
+      //   setFrage("");
+      //   setAntwort("");
+      //   console.log(newFragenListe);
+      //   saveDataLocally({newFragenListe});
+        
+      //   return newFragenListe;
+      // });
+
+      const database = firebase.database();
+      const newFrage = {
+        frage,
+        antwort,
+        category
+      };
+
+      database.ref('karteikarten').push(newFrage)
+        .then(() => {
+          console.log('Daten erfolgreich gespeichert');
+          setFrage('');
+          setAntwort('');
+          setCategory('');
+
+          setFragenListe((prevState) => {
+            const newFragenListe = {
+              ...prevState,
+              [select]: [...(prevState[select] || []), { frage, antwort }],
+              fragen: [...prevState.fragen, frage],
+              antworten: [...prevState.antworten, antwort]
+            };
+            console.log(newFragenListe);
+            return newFragenListe;
+          });
+        })
+        .catch((error) => {
+          console.error('Fehler beim Speichern der Daten', error);
+        });
     }
   };
 

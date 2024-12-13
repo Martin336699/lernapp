@@ -1,204 +1,164 @@
-import { useState, useEffect } from 'react';
-import { database } from '../firebase'; // Adjust the path to firebase.js
-import { ref, push } from 'firebase/database';
-import '../css/app.css';
+import { useState, useEffect } from 'react'; // Importing React hooks
+import { database } from '../firebase'; // Importing the Firebase database configuration
+import { ref, push, get } from 'firebase/database'; // Importing Firebase database functions
+import '../css/app.css'; // Importing CSS for styling
 
-function InputKarteiKarte({ setFragenListe, select, setSelect, category, setCategory, catKeys, setCatKeys, handleSelectChange  }) {
-  const [frage, setFrage] = useState("");
-  const [antwort, setAntwort] = useState("");
 
-  
-  
-  
-  // useEffect(() => {
-  //   const fetchDaten = async () => {
-  //     try {
-  //       const response = await fetch('http://localhost:3001/load');
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         console.log(data);
-  //         const keys = Object.keys(data);
-  //         setCatKeys(keys.slice(2));
-  //         setFragenListe(data);
-  //       } else {
-  //         console.error('Fehler beim Laden der Daten');
-  //       }
-  //     } catch (error) {
-  //       console.error('Netzwerkfehler', error.message);
-  //     }
-  //   };
-  //   fetchDaten();
-  // }, [setFragenListe]);
 
-  // useEffect(() => {
-  //   if (catKeys.length === 0) {
-  //     return;
-  //   }
-  //   // catKeys.forEach((key) => {
-  //   //   const newElement = document.createElement('option');
-  //   //   newElement.setAttribute('value', key);
-  //   //   newElement.textContent = key;
-  //   //   document.getElementById('select').appendChild(newElement);
-  //   // });
+function InputKarteiKarte() {
+  // State variables to manage form inputs and options
+  const [frage, setFrage] = useState(""); // State for the question input
+  const [antwort, setAntwort] = useState(""); // State for the answer input
+  const [category, setCategory] = useState(""); // State for the category input
+  const [options, setOptions] = useState([]); // State for the options fetched from the database
+  const [select, setSelect] = useState(""); // State for the selected option
 
-  // }, []);
-  
-  
-  
-  // const saveDataLocally = async ({newFragenListe}) => {
-  //   try {
-  //     const response = await fetch('/api/saveData', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify(newFragenListe)
-  //     });
-      
-  //     if (response.ok) {
-  //       console.log('Daten erfolgreich gespeichert');
-  //     } else {
-  //       console.error('Fehler beim Speichern der Daten');
-  //     }
-  //   } catch (error) {
-  //     console.error('Netzwerkfehler', error.message);
-  //   }
-  // };
-  
-  const handleInputChange = (e) => {
-    setFrage(e.target.value);
-  };
-  
-  const handleTextChange = (e) => {
-    setAntwort(e.target.value);
-  };
-  
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-  };
 
-  // const handleSelectChange = (e) => {
-  //   const newValue = e.target.value;
-  //   setSelect(newValue);
-  //   console.log(newValue);
-  // };
-  
-  const handleAddBtn = (e) => {
-    if(category === "") {
-      alert('Bitte gib eine Kategorie ein');
-      return;
+
+  // useEffect hook to fetch data from the Firebase database when the component mounts
+  useEffect(() => {
+    const fetchData = async () => {
+      // Reference to the 'karteikarten' node in the Firebase database
+      const karteikartenRef = ref(database, 'karteikarten');
+      // Fetching data from the referenced node
+      const dataRef = await get(karteikartenRef);
+
+      // Checking if data exists at the referenced node
+      if (dataRef.exists()) {
+        const data = dataRef.val(); // Getting the data value
+        console.log(Object.keys(data)); // Logging the keys of the data object
+
+        // Setting the options state with the keys of the data object
+        setOptions(() => {
+          const newOptions = Object.keys(data); // Extracting keys from the data object
+          console.log(newOptions); // Logging the new options
+          return newOptions; // Returning the new options to set the state
+        });
+      }
     };
-    setSelect(category);
-    setCategory("");
-    setCatKeys((prevState) => {
-      const newCatKeys = [...prevState, category];
-      return newCatKeys;
-    });
-    // const newElement = document.createElement('option');
-    // newElement.setAttribute('value', category);
-    // newElement.textContent = category;
-    // document.getElementById('select').appendChild(newElement);
+
+
+
+
+    fetchData(); // Calling the fetchData function
+  }, []); // Dependency array to ensure fetchData is called only once
+
+
+
+  // Handler for question input change
+  const handleInputChange = (e) => {
+    setFrage(e.target.value); // Updating the question state
   };
 
+
+
+  // Handler for answer input change
+  const handleTextChange = (e) => {
+    setAntwort(e.target.value); // Updating the answer state
+  };
+
+
+
+  // Handler for category input change
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value); // Updating the category state
+  };
+
+
+
+  // Handler for adding a new category
+  const handleAddBtn = (e) => {
+    if (category === "") {
+      alert('Bitte gib eine Kategorie ein'); // Alert if category is empty
+      return;
+    }
+    setSelect(category); // Setting the selected category
+    setCategory(""); // Resetting the category input
+    setOptions((prevState) => {
+      const newOptions = [...prevState, category]; // Adding the new category to options
+      return newOptions; // Returning the updated options
+    });
+  };
+
+
+
+  // Handler for key up event on inputs
   const handleKeyUp = (e) => {
     if (e.key === 'Enter') {
       if (frage === "" || antwort === "") {
-        alert('Bitte gib eine Frage und eine Antwort ein');
+        alert('Bitte gib eine Frage und eine Antwort ein'); // Alert if question or answer is empty
         return;
-      };
-      // setFragenListe((prevState) => {
-      //   const newFragenListe = {
-      //     ...prevState,
-      //     [select]: [...(prevState[select] || []), { frage, antwort }],
-      //     fragen: [...prevState.fragen, frage],
-      //     antworten: [...prevState.antworten, antwort]
-      //   };
-      //   setFrage("");
-      //   setAntwort("");
-      //   console.log(newFragenListe);
-      //   saveDataLocally({newFragenListe});
-        
-      //   return newFragenListe;
-      // });
+      }
 
       const newFrage = {
-        frage,
-        antwort,
-        category
+        frage, // Question
+        antwort // Answer
       };
 
-      const karteikartenRef = ref(database, 'karteikarten');
+      // Reference to the selected category node in the Firebase database
+      const karteikartenRef = ref(database, `karteikarten/${select}`);
+      // Pushing the new question and answer to the database
       push(karteikartenRef, newFrage)
         .then(() => {
-          console.log('Daten erfolgreich gespeichert');
-          setFrage('');
-          setAntwort('');
-          setCategory('');
-
-          setFragenListe((prevState) => {
-            const newFragenListe = {
-              ...prevState,
-              [select]: [...(prevState[select] || []), { frage, antwort }],
-              fragen: [...prevState.fragen, frage],
-              antworten: [...prevState.antworten, antwort]
-            };
-            console.log(newFragenListe);
-            return newFragenListe;
-          });
+          setFrage(""); // Resetting the question input
+          setAntwort(""); // Resetting the answer input
         })
         .catch((error) => {
-          console.error('Fehler beim Speichern der Daten', error);
+          console.error('Fehler beim Speichern der Daten', error); // Logging error if any
         });
     }
   };
 
 
- 
+
+  
+  // Handler for select change
+  const handleSelectChange = (e) => {
+    const newValue = e.target.value; // Getting the new selected value
+    setSelect(newValue); // Updating the selected state
+    console.log(newValue); // Logging the new selected value
+  };
+
   return (
     <>
       <div className="inputContainer">
         <h1>Karteikarte</h1>
         <div className="subContainer subsub">
-        <div className='parentDiv'>
-        <select id='select' value={select} onChange={handleSelectChange}>
-          {/* <option value={"Programming"}>Programming</option>
-          <option value={"English"}>English</option>
-          <option value={"Generally"}>Generally</option>
-          <option value={select}>{select}</option> */}
-                        {catKeys.map((key) => (
+          <div className='parentDiv'>
+            <select id='select' value={select} onChange={handleSelectChange}>
+              {options.map((key) => (
                 <option key={key} value={key}>{key}</option>
               ))}
-        </select>
-        <input 
-          type="text"
-          id='category'
-          value={category}
-          placeholder='Neue Kategorie...'
-          onChange={handleCategoryChange}
-        />
-        <button id='addBtn' onClick={handleAddBtn}>Add</button>
-        </div>
-        <input 
-          type="text" 
-          id='frage' 
-          placeholder='Gib deine Frage ein...' 
-          value={frage}  
-          onChange={handleInputChange}
-          onKeyUp={handleKeyUp}
+            </select>
+            <input
+              type="text"
+              id='category'
+              value={category}
+              placeholder='Neue Kategorie...'
+              onChange={handleCategoryChange}
+            />
+            <button id='addBtn' onClick={handleAddBtn}>Add</button>
+          </div>
+          <input
+            type="text"
+            id='frage'
+            placeholder='Gib deine Frage ein...'
+            value={frage}
+            onChange={handleInputChange}
+            onKeyUp={handleKeyUp}
           />
-          
-          <input 
-            type="text" 
-            id='antwort' 
+          <input
+            type="text"
+            id='antwort'
             placeholder='Gib deine Antwort ein...'
             value={antwort}
             onChange={handleTextChange}
             onKeyUp={handleKeyUp}
-            />
+          />
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default InputKarteiKarte;
+export default InputKarteiKarte; // Exporting the component as default

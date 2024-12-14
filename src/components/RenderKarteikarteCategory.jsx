@@ -129,8 +129,8 @@ function RenderKarteikarteCategory() {
   return (
     <div className={`outputContainer ${animationClass}`}>
       <button id='left' onClick={handleZurück}>&lt;</button>
-      <h1>Karteikarte</h1>
       <button id='right' onClick={handleWeiter}>&gt;</button>
+      <h1>Karteikarte</h1>
       <div className="subContainer selectInput">
         <select id='select2' value={select} onChange={handleSelectChange}>
           {options.map((key) => (

@@ -133,8 +133,8 @@ function RenderKarteikarte() {
   return (
     <div className={`outputContainer ${animationClass}`}>
       <button id='left' onClick={handleZurück}>&lt;</button> {/* Button to go to the previous question */}
-      <h1>Karteikarte</h1> {/* Heading for the flashcard */}
       <button id='right' onClick={handleWeiter}>&gt;</button> {/* Button to go to the next question */}
+      <h1>Karteikarte</h1> {/* Heading for the flashcard */}
       <div className="subContainer">
         <p className='alleFragen'>Alle Fragen</p> {/* Paragraph for all questions */}
         {renderCurrentFragen()} {/* Rendering the current questions */}

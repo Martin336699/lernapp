@@ -34,12 +34,12 @@
   justify-content:space-evenly;
   background: rgb(34,193,195);
   background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(122,122,119,1) 100%);
-  /* min-height: 200px; */
   align-items: center;
 }
 
 .subsub {
   padding: .4em 3em;
+  min-width: fit-content;
 }
 
 input {

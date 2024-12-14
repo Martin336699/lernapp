@@ -125,7 +125,7 @@ function InputKarteiKarte() {
     <>
       <div className="inputContainer">
         <h1>Karteikarte</h1>
-        <div className="subContainer subsub">
+        <div className="subContainer1 subsub">
           <div className='parentDiv'>
             <select id='select' value={select} onChange={handleSelectChange}>
               {options.map((key) => (

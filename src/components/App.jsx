@@ -1,7 +1,7 @@
 // Import necessary modules from react-router-dom for routing
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Import the CSS file for styling
-import '../css/app.css';
+import '../css/app.min.css';
 // Import the components that will be used in the routes
 import RenderKarteikarte from './RenderKarteikarte';
 import InputKarteiKarte from './InputKarteikarte';
@@ -16,7 +16,7 @@ function App() {
     <>
       {/* Set up the router for the application */}
       <BrowserRouter>
-        <div>
+        <div id="app">
           {/* Include the Navigation component */}
           <Navigation />
           {/* Define the routes for the application */}

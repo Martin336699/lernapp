@@ -55,9 +55,9 @@
 
 .outputContainer {
   background-color: #20dad8;
-  min-width: 900px;
-  min-height: 300px;
-  max-width: 900px;
+  min-width: 100%;
+  /* min-height: 300px; */
+  max-width: 100%;
   margin-top: 8%;
   border-radius: 6px 16px 6px 16px;
   text-align: center;
@@ -71,8 +71,9 @@
   flex-direction: column;
   justify-content:space-evenly;
   /* background-color: lightblue; */
-  min-height: 200px;
+  /* min-height: 200px; */
   align-items: center;
+  min-width: 95%;
 }
 
 
@@ -87,20 +88,14 @@ h1 {
 }
 
 p {
-  font-weight: bold;
+  font-weight: lighter;
   color: black;
-  font-size: 2.0em;
+  font-size: 1.5em;
   margin-bottom: 0;
   margin-top: 0;
-}
-
-span {
-  display: block;
-  font-weight: normal;
-  padding: 6px;
-  font-size: .75em;
   line-height: 1.7em;
 }
+
 
 button {
   padding: 9px;
@@ -137,7 +132,7 @@ button {
   font-size: 1.28em !important;
   padding: 3px 6px !important;
   height: 1.45em;
-  width: 20%;
+  min-width: 40%;
   border-radius: 3px 6px 3px 6px;
   border: none;
   background-color: #f4f4f4;
@@ -149,4 +144,15 @@ button {
   font-size: 1.5em;
   margin-top: .9em;
   margin-bottom: 0.28em;
+}
+
+
+@media (max-width: 900px) {
+  p{
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 2.5em !important;
+  }
 }

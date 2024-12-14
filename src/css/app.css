@@ -10,12 +10,17 @@
 .color4 {color: #7a7a77;}
 .color5 {color: #f3eae8;}
 
+#app {
+  max-width: 95vw;
+}
+
 .inputContainer {
+
   background-color: #20dad8;
   margin-top: 8%;
-  min-width: 900px;
-  min-height: 300px;
-  max-width: 900px;
+  min-width: 100%;
+  /* min-height: 30%; */
+  max-width: 100%;
   border-radius: 6px 16px 6px 16px;
   text-align: center;
   padding-bottom: 2em;
@@ -29,7 +34,7 @@
   justify-content:space-evenly;
   background: rgb(34,193,195);
   background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(122,122,119,1) 100%);
-  min-height: 200px;
+  /* min-height: 200px; */
   align-items: center;
 }
 
@@ -56,10 +61,11 @@ h1 {
 
 #category {
   display: inline-block;
-  width: 30%;
-  font-size: 1.3em;
+  min-width: 10% !important;
+  font-size: 1.28em;
   padding: 3px 6px;
   background-color: #f3eae8;
+  margin: 6px 6px;
 }
 input::placeholder {
   color: #121815;
@@ -78,7 +84,7 @@ input::placeholder {
   font-size: 1.28em !important;
   padding: 3px 6px !important;
   height: 1.45em;
-  width: 40%;
+  min-width: 40%;
   border-radius: 3px 6px 3px 6px;
 }
  #addBtn {
@@ -86,9 +92,19 @@ input::placeholder {
  }
 
  #frage, #antwort {
-  margin-left: 75px; 
+  /* margin-left: 75px;  */
+  min-width: 90%;
 }
 
 .parentDiv{
-  min-width: 600px;
+  /* min-width: 90%; */
+  max-width: 100%;
+}
+
+
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5em !important;
+  }
 }

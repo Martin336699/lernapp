@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'; // Importing React hooks
 import { database } from '../firebase'; // Importing the Firebase database configuration
-import { ref, push, get } from 'firebase/database'; // Importing Firebase database functions
-import '../css/app.css'; // Importing CSS for styling
+import { ref, push, get, set } from 'firebase/database'; // Importing Firebase database functions
+import '../css/app.min.css'; // Importing CSS for styling
 
 
 
@@ -13,7 +13,7 @@ function InputKarteiKarte() {
   const [options, setOptions] = useState([]); // State for the options fetched from the database
   const [select, setSelect] = useState(""); // State for the selected option
 
-
+  // console.log(); 
 
   // useEffect hook to fetch data from the Firebase database when the component mounts
   useEffect(() => {
@@ -28,6 +28,8 @@ function InputKarteiKarte() {
         const data = dataRef.val(); // Getting the data value
         console.log(Object.keys(data)); // Logging the keys of the data object
 
+        setSelect(Object.keys(data)[0]); // Setting the selected state with the first key of the data object
+        
         // Setting the options state with the keys of the data object
         setOptions(() => {
           const newOptions = Object.keys(data); // Extracting keys from the data object

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; // Importing necessary hooks from React
 import { database } from '../firebase'; // Importing the Firebase database configuration
 import { ref, get } from 'firebase/database'; // Importing methods to reference and get data from Firebase database
-import '../css/app copy.css'; // Importing CSS for styling
+import '../css/renderKarteikarte.min.css'; // Importing CSS for styling
 
 
 function RenderKarteikarte() {
@@ -117,9 +117,9 @@ function RenderKarteikarte() {
       <div key={currentKey}>
         <h2>{currentKey}</h2>
         <div key={currentItem.id}>
-          <p>Frage:</p><br />
+          <h2>Frage:</h2><br />
           <p>{currentItem.frage}</p><br />
-          <p>Antwort:</p><br />
+          <h2>Antwort:</h2><br />
           <p>{currentItem.antwort}</p><br />
         </div>
       </div>

@@ -29,7 +29,17 @@ ul {
 .link {
   text-decoration: none;
   color: black;
-  font-size: 1.7em;
+  font-size: 1em;
   padding: 0 .5em;
   /* background-color: lightgray; */
+}
+
+
+@media (max-width: 600px) {
+  ul {
+    width: 100%;
+  }
+  .link {
+    font-size: .8em;
+  }
 }

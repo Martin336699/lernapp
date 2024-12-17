@@ -71,7 +71,7 @@
   flex-direction: column;
   justify-content:space-evenly;
   background: #2f4f4f;
-  background: radial-gradient(circle, rgba(173,216,230,1) 30%, rgba(47,79,79,1) 250%);
+  background: radial-gradient(circle, rgba(173,216,230,1) -250%, rgba(47,79,79,1) 120%);
   /* background: radial-gradient(circle, rgba(47,79,79,1) -150%, rgba(173,216,230,1) 150%); */
   align-items: center;
   min-width: 95%;
@@ -86,11 +86,16 @@ h1 {
   margin-bottom: 0;
   font-family: 'Montserrat';
   /* background-color: lightblue; */
+  color: #121815 !important;
+}
+
+h2 {
+  color: #121815;
 }
 
 p {
   font-weight: lighter;
-  color: black;
+  color: #d3d3d3;
   font-size: 1.5em;
   margin-bottom: 0;
   margin-top: 0;
@@ -103,7 +108,7 @@ button {
   border-radius: 3px 6px 3px 6px;
   border: none;
   background-color: #add8e6;
-  color: #121815;
+  color: #007bff;
   cursor: pointer;
   font-weight: bold;
   display: inline-block;
@@ -147,8 +152,13 @@ button {
   font-size: 1.5em;
   margin-top: .9em;
   margin-bottom: 0.28em;
+  /* color: #add8e6 !important; */
 }
 
+
+.highlight {
+  color: #add8e6;
+}
 
 @media (max-width: 900px) {
   p{

@@ -117,9 +117,9 @@ function RenderKarteikarte() {
       <div key={currentKey}>
         <h2>{currentKey}</h2>
         <div key={currentItem.id}>
-          <h2>Frage:</h2><br />
+          <h2 className='highlight'>Frage:</h2><br />
           <p>{currentItem.frage}</p><br />
-          <h2>Antwort:</h2><br />
+          <h2 className='highlight'>Antwort:</h2><br />
           <p>{currentItem.antwort}</p><br />
         </div>
       </div>

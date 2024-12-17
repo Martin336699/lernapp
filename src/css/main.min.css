@@ -1,1 +1,1 @@
-body{font-family:"Montserrat Alternates";background:#f3eae8;background:radial-gradient(circle,#f3eae8 65%,#20dad8 100%);color:#000;font-weight:700;margin:0;display:flex;justify-content:center;height:100vh;padding:0}body::-webkit-scrollbar{display:none}
+body{font-family:'Montserrat Alternates';background:#d3d3d3;background:radial-gradient(circle, rgba(243,234,232,1) 65%, rgba(32,218,216,1) 100%);color:black;font-weight:bold;margin:0;display:flex;justify-content:center;height:100vh;padding:0}body::-webkit-scrollbar{display:none}

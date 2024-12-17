@@ -1,6 +1,6 @@
 nav {
-  background: rgb(34,193,195);
-  background: radial-gradient(circle, rgba(32,218,216,1) 100%, rgba(34,193,195,1) 0%);
+  background: #add8e6;
+  background: radial-gradient(circle, rgba(173,216,230,1) 100%, rgba(211,211,211,1) 0%);
   display: flex;
   justify-content: center;
   align-items: center;

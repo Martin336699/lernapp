@@ -103,6 +103,7 @@ button {
   border-radius: 3px 6px 3px 6px;
   border: none;
   background-color: #add8e6;
+  color: #121815;
   cursor: pointer;
   font-weight: bold;
   display: inline-block;
@@ -137,6 +138,7 @@ button {
   border-radius: 3px 6px 3px 6px;
   border: none;
   background-color: #add8e6;
+  color: #121815;
   cursor: pointer;
 }
 

@@ -53,6 +53,7 @@ h1 {
   font-size: 1.28em;
   padding: 3px 6px;
   background-color: #add8e6;
+  color: #121815;
   margin: 6px 6px;
 }
 input::placeholder {
@@ -70,6 +71,7 @@ input::placeholder {
 
 #select {
   background-color: #add8e6;
+  color: #121815;
   font-size: 1.28em !important;
   padding: 3px 6px !important;
   height: 1.45em;
@@ -79,6 +81,7 @@ input::placeholder {
  #addBtn {
   font-size: 1.28em !important;
   background-color: #007bff;
+  color: #121815;
  }
 
  #frage, #antwort {

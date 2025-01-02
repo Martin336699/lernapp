@@ -1,5 +1,5 @@
 #app {
-  max-width: 95vw;
+  max-width: 65vw;
 }
 
 .inputContainer {
@@ -20,8 +20,8 @@
   display: flex;
   flex-direction: column;
   justify-content:space-evenly;
-  background: #2f4f4f;
-  background: radial-gradient(circle, rgba(173,216,230,1) -250%, rgba(47,79,79,1) 120%);
+  background: #20dbbb;
+  background: radial-gradient(circle, rgba(173,216,230,1) -250%, rgba(32,219,187,1) 120%);
   align-items: center;
 }
 
@@ -36,7 +36,7 @@ input {
   border-radius: 3px 6px 3px 6px;
   border: none;
   width: 75%;
-  background-color: #add8e6;
+  background-color: #fff;
 }
 
 h1 {
@@ -52,7 +52,7 @@ h1 {
   min-width: 10% !important;
   font-size: 1.28em;
   padding: 3px 6px;
-  background-color: #add8e6;
+  background-color: #fff;
   color: #121815;
   margin: 6px 6px;
 }
@@ -62,7 +62,7 @@ input::placeholder {
 
 #addBtn, select {
   font-size: 1.3em;
-  /* background-color: #add8e6; */
+  /* background-color: #fff; */
   padding: 3px 8px;
   border-radius: 3px 6px 3px 6px;
   border: none;
@@ -70,7 +70,7 @@ input::placeholder {
 }
 
 #select {
-  background-color: #add8e6;
+  background-color: #fff;
   color: #121815;
   font-size: 1.28em !important;
   padding: 3px 6px !important;
@@ -99,5 +99,9 @@ input::placeholder {
 @media (max-width: 600px) {
   h1 {
     font-size: 2.5em !important;
+  }
+
+  #app {
+    max-width: 95vw;
   }
 }

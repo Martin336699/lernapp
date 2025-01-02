@@ -49,6 +49,7 @@
   }
 }
 
+
 .animateSlide2 {
   animation: slideInOut2 1.2s ease-in-out;
 }
@@ -70,8 +71,8 @@
   display: flex;
   flex-direction: column;
   justify-content:space-evenly;
-  background: #2f4f4f;
-  background: radial-gradient(circle, rgba(173,216,230,1) -250%, rgba(47,79,79,1) 120%);
+  background: #20dbbb;
+  background: radial-gradient(circle, rgba(173,216,230,1) -250%, rgba(32,219,187,1) 120%);
   /* background: radial-gradient(circle, rgba(47,79,79,1) -150%, rgba(173,216,230,1) 150%); */
   align-items: center;
   min-width: 95%;
@@ -95,7 +96,7 @@ h2 {
 
 p {
   font-weight: lighter;
-  color: #d3d3d3;
+  color: #121815;
   font-size: 1.5em;
   margin-bottom: 0;
   margin-top: 0;
@@ -142,7 +143,7 @@ button {
   min-width: 40%;
   border-radius: 3px 6px 3px 6px;
   border: none;
-  background-color: #add8e6;
+  background-color: #fff;
   color: #121815;
   cursor: pointer;
 }
@@ -157,7 +158,7 @@ button {
 
 
 .highlight {
-  color: #add8e6;
+  color: #121815;
 }
 
 @media (max-width: 900px) {

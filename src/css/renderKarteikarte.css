@@ -73,9 +73,9 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-.markdown {
+/* .markdown {
   margin: 0 3em;
-}
+} */
 .subContainer {
   display: flex;
   flex-direction: column;
@@ -189,17 +189,43 @@ button {
 @media (max-width: 900px) {
 
 
-  p{
-    font-size: 1.0em;
-  }
-
   h1 {
     font-size: 2.5em !important;
+    margin: 0 .4em 0 0;
+  }
+
+  p{
+    font-size: 1.0em;
+    margin: 0 .4em 0 0;
+  }
+
+  li {
+    font-size: 1.5em;
+    color: #121815;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    line-height: 1em;
   }
 }
 
-@media (max-width: 250px) {
+
+
+@media (max-width: 500px) {
   h1 {
     font-size: 1.5em !important;
+    margin: 0 .2em 0 0;
+  }
+
+  p {
+    font-size: .5em;
+    margin: 0 .2em 0 0;
+  }
+
+  li {
+    font-size: 1.0em;
+    color: #121815;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    line-height: 1em;
   }
 }  

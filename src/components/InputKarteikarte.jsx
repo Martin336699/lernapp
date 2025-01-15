@@ -149,7 +149,7 @@ function InputKarteiKarte() {
             onChange={handleInputChange}
             onKeyUp={handleKeyUp}
           />
-          <input
+          <textarea
             type="text"
             id='antwort'
             placeholder='Gib deine Antwort ein...'

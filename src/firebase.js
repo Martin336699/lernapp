@@ -14,14 +14,14 @@ import { getAnalytics } from 'firebase/analytics'; // Function to get the Fireba
 // Configuration object for your Firebase app
 // Contains all the necessary keys and identifiers for your Firebase project
 const firebaseConfig = {
-  apiKey: "AIzaSyDQBJjPhJH73kJ5enFkozzu875LM0SH_BE", // API key for authenticating requests
-  authDomain: "lernapp-53ba3.firebaseapp.com", // Domain for Firebase Authentication
-  databaseURL: "https://lernapp-53ba3-default-rtdb.europe-west1.firebasedatabase.app", // URL for the Firebase Realtime Database
-  projectId: "lernapp-53ba3", // Project ID for your Firebase project
-  storageBucket: "lernapp-53ba3.firebasestorage.app", // Storage bucket for Firebase Storage
-  messagingSenderId: "109507802335", // Sender ID for Firebase Cloud Messaging
-  appId: "1:109507802335:web:2fc22c960de9a724b5256a", // App ID for the Firebase app
-  measurementId: "G-MYS4MLPBX3" // Measurement ID for Firebase Analytics (optional)
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 

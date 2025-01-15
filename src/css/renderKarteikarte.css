@@ -1,4 +1,4 @@
-
+/* 
 @keyframes slideInOut {
   0% {
     transform: translateX(0);
@@ -52,27 +52,36 @@
 
 .animateSlide2 {
   animation: slideInOut2 1.2s ease-in-out;
+} */
+
+.swiper-container  {
+  --swiper-navigation-size: 44px;
+  --swiper-navigation-top-offset: 20px;
+  --swiper-navigation-sides-offset: 10px;
+  --swiper-navigation-color: var(--swiper-theme-color);
 }
 
 .outputContainer {
-  background-color: #add8e6;
+  background-color: #20dbbb;
   min-width: 100%;
   /* min-height: 300px; */
   max-width: 100%;
+  max-height: 80vh;
   margin-top: 8%;
   border-radius: 6px 16px 6px 16px;
-  text-align: center;
   padding-bottom: 2em;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-
+.markdown {
+  margin: 0 3em;
+}
 .subContainer {
   display: flex;
   flex-direction: column;
   justify-content:space-evenly;
   background: #20dbbb;
-  background: radial-gradient(circle, rgba(173,216,230,1) -250%, rgba(32,219,187,1) 120%);
+  background: radial-gradient(circle, rgba(173,216,230,1) -150%, rgba(32,219,187,1) 120%);
   /* background: radial-gradient(circle, rgba(47,79,79,1) -150%, rgba(173,216,230,1) 150%); */
   align-items: center;
   min-width: 95%;
@@ -90,6 +99,10 @@ h1 {
   color: #121815 !important;
 }
 
+.h1 {
+  text-align: center !important;
+}
+
 h2 {
   color: #121815;
 }
@@ -97,11 +110,20 @@ h2 {
 p {
   font-weight: lighter;
   color: #121815;
-  font-size: 1.5em;
+  font-size: 2.5em;
   margin-bottom: 0;
   margin-top: 0;
   line-height: 1.7em;
 }
+
+li {
+  font-size: 2.0em;
+  color: #121815;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.7em;
+}
+
 
 
 button {
@@ -149,6 +171,7 @@ button {
 }
 
 .alleFragen {
+  text-align: center;
   font-weight: initial;
   font-size: 1.5em;
   margin-top: .9em;
@@ -161,9 +184,13 @@ button {
   color: #121815;
 }
 
+
+
 @media (max-width: 900px) {
+
+
   p{
-    font-size: 1em;
+    font-size: 1.0em;
   }
 
   h1 {

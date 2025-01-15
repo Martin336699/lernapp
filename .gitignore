@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 react-to-local/*
+
+# Environment variables
+.env

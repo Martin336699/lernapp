@@ -30,20 +30,23 @@
   min-width: fit-content;
 }
 
-input {
+input,
+textarea {
   margin: 40px 39px 0 39px;
   padding: 9px;
-  border-radius: 3px 6px 3px 6px;
+  border-radius: 6px 9px 6px 9px;
   border: none;
   width: 75%;
   background-color: #fff;
+  /* max-width: 1313px ; */
+  max-width: 40vw;
 }
 
 h1 {
   display: inline-block;
   font-weight: bold;
   padding: 6px;
-  color: #121815;;
+  color: #121815;
   /* background-color: lightblue; */
 }
 

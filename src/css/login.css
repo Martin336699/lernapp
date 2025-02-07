@@ -1,0 +1,36 @@
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+input{
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 93%;
+    margin: 10px;
+    font-size: 1.5em;
+}
+
+label{
+  font-size: 1.5em;
+}
+
+button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    margin: 10px;
+}
+
+.user {
+  display: block;
+}

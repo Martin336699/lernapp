@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react'; // Importing React hooks
-import { database } from '../firebase'; // Importing the Firebase database configuration
+import { app, database } from '../firebase'; // Importing the Firebase database configuration
 import { ref, push, get, set } from 'firebase/database'; // Importing Firebase database functions
 import '../css/app.css'; // Importing CSS for styling
+
+import { getAuth, 
+  createUserWithEmailAndPassword, 
+  setPersistence, 
+  signInWithEmailAndPassword, 
+  browserLocalPersistence,
+  onAuthStateChanged,
+  signOut } from "firebase/auth";
 
 
 
@@ -12,14 +20,31 @@ function InputKarteiKarte() {
   const [category, setCategory] = useState(""); // State for the category input
   const [options, setOptions] = useState([]); // State for the options fetched from the database
   const [select, setSelect] = useState(""); // State for the selected option
+  const [uid, setUid] = useState("");
 
-  // console.log(); 
+  useEffect(() => {
+    const auth = getAuth(app);
+    
+  
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user.uid);
+        setUid(user.uid);
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        
+  
+      } else {
+        // User is signed out
+      }
+    });
+  }, []);
 
   // useEffect hook to fetch data from the Firebase database when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       // Reference to the 'karteikarten' node in the Firebase database
-      const karteikartenRef = ref(database, 'karteikarten');
+      const karteikartenRef = ref(database, `users/${uid}/karteikarten`);
       // Fetching data from the referenced node
       const dataRef = await get(karteikartenRef);
 
@@ -43,7 +68,7 @@ function InputKarteiKarte() {
 
 
     fetchData(); // Calling the fetchData function
-  }, []); // Dependency array to ensure fetchData is called only once
+  }, [uid]); // Dependency array to ensure fetchData is called only once
 
 
 
@@ -98,7 +123,7 @@ function InputKarteiKarte() {
       };
 
       // Reference to the selected category node in the Firebase database
-      const karteikartenRef = ref(database, `karteikarten/${select}`);
+      const karteikartenRef = ref(database, `users/${uid}/karteikarten/${select}`);
       // Pushing the new question and answer to the database
       push(karteikartenRef, newFrage)
         .then(() => {

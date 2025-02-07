@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'; // Importing necessary hooks from React
-import { database } from '../firebase'; // Importing the Firebase database configuration
+
+import { database, app } from '../firebase'; // Importing the Firebase database configuration
 import { ref, get } from 'firebase/database'; // Importing methods to reference and get data from Firebase database
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 import '../css/renderKarteikarte.css'; // Importing CSS for styling
 
 import Markdown from 'react-markdown'; // Importing the Markdown component
@@ -18,11 +21,30 @@ import 'swiper/css/scrollbar'; // Importing Swiper scrollbar CSS
 
 function RenderKarteikarte() {
   const [fragenListe, setFragenListe] = useState([]); // State to store the list of questions (array)
-  // const [currentIndex, setCurrentIndex] = useState(0); // State to store the current index of the displayed card (number)
+  const [uid, setUid] = useState(null);
+
+
 
   useEffect(() => {
+    const auth = getAuth(app);
+    
+  
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user.uid);
+        setUid(user.uid);
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        
+  
+      } else {
+        // User is signed out
+      }
+    });
+
     const fetchData = async () => {
-      const karteikartenRef = ref(database, 'karteikarten'); // Reference to the 'karteikarten' node in the Firebase database
+     
+      const karteikartenRef = ref(database, `users/${uid}/karteikarten`); // Reference to the 'karteikarten' node in the Firebase database
       const dataRef = await get(karteikartenRef); // Fetching data from the Firebase database
 
       if (dataRef.exists()) {
@@ -49,7 +71,7 @@ function RenderKarteikarte() {
     };
 
     fetchData();
-  }, []); // Empty dependency array means this effect runs once when the component mounts
+  }, [uid]); // Empty dependency array means this effect runs once when the component mounts
 
   const renderCardContent = (index) => {
     if (fragenListe.length === 0) return "Lade..."; // If the list is empty, show loading text

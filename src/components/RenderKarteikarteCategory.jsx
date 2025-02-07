@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'; // Importing necessary hooks from React
-import { database } from '../firebase'; // Importing the Firebase database configuration
+import { database, app } from '../firebase'; // Importing the Firebase database configuration
 import { ref, get } from 'firebase/database'; // Importing methods to reference and get data from Firebase database
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 import '../css/renderKarteikarte.css'; // Importing CSS for styling
 
 import Markdown from 'react-markdown'; // Importing the Markdown component
@@ -22,13 +24,29 @@ function RenderKarteikarteCategory() {
   const [fragenListe, setFragenListe] = useState([]);
   const [options, setOptions] = useState([]); // State for the options fetched from the database
   const [select, setSelect] = useState(""); // State for the selected option
-
+   const [uid, setUid] = useState(null);
 
 
   // useEffect hook to fetch data from the Firebase database when the component mounts
   useEffect(() => {
+        const auth = getAuth(app);
+        
+      
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            console.log(user.uid);
+            setUid(user.uid);
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/auth.user
+            
+      
+          } else {
+            // User is signed out
+          }
+        });
+
     const fetchData = async () => {
-      const karteikartenRef = ref(database, 'karteikarten'); // Reference to the 'karteikarten' node in the Firebase database
+      const karteikartenRef = ref(database, `users/${uid}/karteikarten`); // Reference to the 'karteikarten' node in the Firebase database
       const dataRef = await get(karteikartenRef); // Fetching data from the Firebase database
 
       if (dataRef.exists()) {
@@ -57,7 +75,7 @@ function RenderKarteikarteCategory() {
     };
 
     fetchData();
-  }, []); // Empty dependency array means this effect runs once when the component mounts
+  }, [uid]); // Empty dependency array means this effect runs once when the component mounts
  
   
   // Function to render the current questions

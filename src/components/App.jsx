@@ -47,7 +47,7 @@ function App() {
             </Routes>
             <div>
               <p>Eingeloggt als: {user.email}</p>
-              <button onClick={logout}>Logout</button>
+              <button className="loginBtn" onClick={logout}>Logout</button>
             </div>
           </div>
         </BrowserRouter>

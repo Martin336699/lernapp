@@ -79,6 +79,9 @@ function RenderKarteikarte() {
     return (
       <>
         <div className="subContainer" key={card.id}>
+        <div>
+        <p className='alleFragen'>Alle Fragen</p> {/* Label for all questions */}
+      </div>
           <h1 className='highlight'>{card.key}</h1><br /> {/* Display the key of the card */}
           <h2 className='highlight'>Frage:</h2><br /> {/* Display the question label */}
           <p>{card.frage}</p><br /> {/* Display the question */}
@@ -99,9 +102,7 @@ function RenderKarteikarte() {
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <h1>Karteikarte</h1>
       </div>
-      <div>
-        <p className='alleFragen'>Alle Fragen</p> {/* Label for all questions */}
-      </div>
+
       {fragenListe.length > 0 ? (
         <Swiper
           // onSlideChangeTransitionEnd={handleSlideChange} // Event handler for slide change
@@ -114,6 +115,7 @@ function RenderKarteikarte() {
           className='swiper-container'
         >
           {fragenListe.map((card, index) => (
+            
             <SwiperSlide key={index}>
               <div className="card">{renderCardContent(index)}</div> {/* Render card content */}
             </SwiperSlide>

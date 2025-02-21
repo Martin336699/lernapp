@@ -115,11 +115,12 @@ import { getAuth,
                   <button type="submit" onClick={signUp}>Registrierung</button>
                   <button type="submit" onClick={login}>Login</button>
                 </form>
-                </div>
                 <div className='user'>
                   {user === "" ? <p>Kein User</p> : <p>Eingeloggt als: {user}</p>}
                   <button onClick={logout}>Logout</button>
                 </div>
+                </div>
+
                 
           
 

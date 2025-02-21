@@ -109,15 +109,15 @@ import { getAuth,
                 <div className='login'>
                 <form>
                   <label htmlFor="email">Email</label>
-                  <input id="email" type="email" placeholder="Enter Email..." ref={emailRef}/>
+                  <input className='loginInput' id="email" type="email" placeholder="Enter Email..." ref={emailRef}/>
                   <label htmlFor="password">Password</label>
-                  <input id="password" type="password" placeholder="Enter Password..." ref={passwordRef}/>
-                  <button type="submit" onClick={signUp}>Registrierung</button>
-                  <button type="submit" onClick={login}>Login</button>
+                  <input className='loginInput' id="password" type="password" placeholder="Enter Password..." ref={passwordRef}/>
+                  <button className='loginBtn' type="submit" onClick={signUp}>Registrierung</button>
+                  <button className='loginBtn' type="submit" onClick={login}>Login</button>
                 </form>
                 <div className='user'>
                   {user === "" ? <p>Kein User</p> : <p>Eingeloggt als: {user}</p>}
-                  <button onClick={logout}>Logout</button>
+                  <button className='loginBtn' onClick={logout}>Logout</button>
                 </div>
                 </div>
 

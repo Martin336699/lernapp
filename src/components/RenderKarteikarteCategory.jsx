@@ -113,13 +113,7 @@ function RenderKarteikarteCategory() {
       <div style={{display: 'flex', justifyContent: 'center'}}>
       <h1>Karteikarte</h1>
       </div>
-      <div className="subContainer selectInput">
-        <select id='select2' value={select} onChange={handleSelectChange}>
-          {options.map((key) => (
-            <option key={key} value={key}>{key}</option>
-          ))}
-        </select>
-      </div>
+
       {fragenListe.length > 0 ? (
       <Swiper
         // onSlideChangeTransitionEnd={handleSlideChange} // Event handler for slide change
@@ -135,6 +129,13 @@ function RenderKarteikarteCategory() {
       .filter(card => card.key === select) // Filter cards based on the selected key
       .map((card, index) => (
       <SwiperSlide key={index}>
+        <div className="subContainer selectInput">
+        <select id='select2' value={select} onChange={handleSelectChange}>
+          {options.map((key) => (
+            <option key={key} value={key}>{key}</option>
+          ))}
+        </select>
+        </div>
         <div className="card">{renderCardContent(card)}</div> {/* Render card content */}
       </SwiperSlide>
       ))}

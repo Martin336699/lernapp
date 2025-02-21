@@ -1,6 +1,6 @@
 nav {
-  background: #add8e6;
-  background: radial-gradient(circle, rgba(173,216,230,1) 100%, rgba(211,211,211,1) 0%);
+  background: #08beff;
+  /* background: radial-gradient(circle, rgba(173,216,230,1) 100%, rgba(211,211,211,1) 0%); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +28,7 @@ ul {
 
 .link {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 1em;
   padding: 0 .5em;
   /* background-color: lightgray; */

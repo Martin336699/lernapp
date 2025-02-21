@@ -47,7 +47,13 @@ function App() {
             </Routes>
             <div>
               <p>Eingeloggt als: {user.email}</p>
-              <button className="loginBtn" onClick={logout}>Logout</button>
+              <button style={{backgroundColor: '#08beff',
+                              color: 'white',
+                              padding: '10px',
+                              borderRadius: '5px',
+                              border: 'none',
+                              cursor: 'pointer'
+              }} onClick={logout}>Logout</button>
             </div>
           </div>
         </BrowserRouter>

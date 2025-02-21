@@ -54,19 +54,25 @@
   animation: slideInOut2 1.2s ease-in-out;
 } */
 
+
 .swiper-container  {
   --swiper-navigation-size: 44px;
-  --swiper-navigation-top-offset: 20px;
+  --swiper-navigation-top-offset: 2.3em;
   --swiper-navigation-sides-offset: 10px;
-  --swiper-navigation-color: var(--swiper-theme-color);
+  --swiper-navigation-color: #dafdf5;
+}
+
+body {
+  height: 100vh;
 }
 
 .outputContainer {
-  background-color: #20dbbb;
+  background-color: #dafdf5;
   min-width: 100%;
   /* min-height: 300px; */
   max-width: 100%;
-  max-height: 80vh;
+  
+  height: auto;
   margin-top: 8%;
   border-radius: 6px 16px 6px 16px;
   padding-bottom: 2em;
@@ -80,11 +86,13 @@
   display: flex;
   flex-direction: column;
   justify-content:space-evenly;
-  background: #20dbbb;
-  background: radial-gradient(circle, rgba(173,216,230,1) -150%, rgba(32,219,187,1) 120%);
+  background: #08e6ff;
+  /* background: radial-gradient(circle, rgba(173,216,230,1) -150%, rgba(32,219,187,1) 120%); */
   /* background: radial-gradient(circle, rgba(47,79,79,1) -150%, rgba(173,216,230,1) 150%); */
   align-items: center;
   min-width: 95%;
+  height: 100%;
+  /* min-height: 80vh; */
 }
 
 
@@ -174,7 +182,7 @@ button {
   text-align: center;
   font-weight: initial;
   font-size: 1.5em;
-  margin-top: .9em;
+  margin-top: 1.5em;
   margin-bottom: 0.28em;
   /* color: #add8e6 !important; */
 }

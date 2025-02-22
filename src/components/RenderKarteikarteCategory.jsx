@@ -86,7 +86,7 @@ function RenderKarteikarteCategory() {
       <div className="subContainer" key={card.id}>
         <h1 className='highlight'>{card.key}</h1><br /> {/* Display the key of the card */}
         <h2 className='highlight'>Frage:</h2><br /> {/* Display the question label */}
-        <p>{card.frage}</p><br /> {/* Display the question */}
+        <p className='pFrage'>{card.frage}</p><br /> {/* Display the question */}
         <h2 className='highlight'>Antwort:</h2><br /> {/* Display the answer label */}
         <p style={{fontSize: '.9rem'}}><Markdown className="markdown">{card.antwort}</Markdown></p><br /> {/* Display the answer */}
       </div>
@@ -120,6 +120,7 @@ function RenderKarteikarteCategory() {
         spaceBetween={50} // Space between slides
         slidesPerView={1} // Number of slides per view
         loop={true} // Enable looping
+        autoHeight={true} // Enable auto height
         modules={[Navigation, Pagination, Scrollbar, A11y]} // Swiper modules
         pagination={{ clickable: true }} // Enable clickable pagination
         navigation={true} // Enable navigation

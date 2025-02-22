@@ -92,13 +92,10 @@ function RenderKarteikarte() {
     );
   };
 
-  const handleSlideChange = (swiper) => {
-    const nextIndex = (swiper.activeIndex + 1) % fragenListe.length; // Calculate the next index
-    setCurrentIndex(nextIndex); // Update the current index state
-  };
+
 
   return (
-    <div className="flashcards-container outputContainer">
+    <div className="outputContainer">
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <h1>Karteikarte</h1>
       </div>
@@ -109,6 +106,7 @@ function RenderKarteikarte() {
           spaceBetween={50} // Space between slides
           slidesPerView={1} // Number of slides per view
           loop={true} // Enable looping
+          autoHeight={true} // Enable auto height
           modules={[Navigation, Pagination, Scrollbar, A11y]} // Swiper modules
           pagination={{ clickable: true }} // Enable clickable pagination
           navigation={true} // Enable navigation

@@ -84,9 +84,9 @@ function RenderKarteikarte() {
       </div>
           <h1 className='highlight'>{card.key}</h1><br /> {/* Display the key of the card */}
           <h2 className='highlight'>Frage:</h2><br /> {/* Display the question label */}
-          <p>{card.frage}</p><br /> {/* Display the question */}
+          <p className='pFrage'>{card.frage}</p><br /> {/* Display the question */}
           <h2 className='highlight'>Antwort:</h2><br /> {/* Display the answer label */}
-          <Markdown>{card.antwort}</Markdown><br /> {/* Display the answer */}
+          <p style={{fontSize: '.9rem'}}><Markdown className="markdown">{card.antwort}</Markdown></p><br /> {/* Display the answer */}
         </div>
       </>
     );

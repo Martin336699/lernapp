@@ -121,6 +121,11 @@ p {
   line-height: 1.7em;
 }
 
+.pFrage {
+  text-align: center !important;
+  font-size: 2em !important;
+}
+
 li {
   font-size: 2.0em;
   color: #121815;

@@ -49,7 +49,7 @@ function App() {
               <p>Eingeloggt als: {user.email}</p>
               <button style={{backgroundColor: '#08beff',
                               color: 'white',
-                              padding: '10px',
+                              padding: '5px 10px',
                               borderRadius: '5px',
                               border: 'none',
                               cursor: 'pointer'
